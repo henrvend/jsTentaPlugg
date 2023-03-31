@@ -2,7 +2,6 @@
 
 window.addEventListener('load', function() {
     let submit = document.querySelector('button');
-    console.log(submit);
     submit.addEventListener('click', validateForm);
 });
 
@@ -20,19 +19,20 @@ function validateForm(e) {
     }
     
     e.preventDefault();
-    console.log(email.value.length.item)
+    console.log(email.value.length)
     console.log(checked.value);
     try {
         if(email.value.length<7){
             throw(email);
         }
         if(checked.value!='fish'){
-            throw(checked);
+            throw(checked.value);
         }
+        alert('Form sent');
     } catch (error) {
         console.log(error);
-        error.style.borderBottom = 'solid red';
-        document.querySelector('#error').textContent = error +'is not correct filled';
+       error.style.borderBottom = 'solid red';
+        document.querySelector('#error').textContent = error +' is not correct filled';
     }
 }
     
